@@ -32,6 +32,8 @@ class Program
                     BusquedasReportes ();
                     break;
                 case "5": 
+                    GuardarCargarMenu();
+                    break;
                 case "6":
                     Console.Write("saliendo del programa...");
                     salir = true;
@@ -701,6 +703,87 @@ static void BusquedasReportes()
         Console.WriteLine("Total libros: ...");
         Console.WriteLine("Disponibles: ...");
         Console.WriteLine("Prestados: ...");
+        Console.ReadKey();
+    }
+
+    ////////////////////////////////////////////
+
+
+    static void GuardarCargarMenu()
+    {
+        bool volver = false;
+        while (!volver)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Menú Guardar / Cargar Datos ===");
+            Console.WriteLine("1. Guardar datos");
+            Console.WriteLine("2. Cargar datos");
+            Console.WriteLine("3. Reiniciar datos");
+            Console.WriteLine("4. Volver al menú principal");
+            Console.Write("Seleccione una opción: ");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    GuardarDatos();
+                    break;
+                case "2":
+                    CargarDatos();
+                    break;
+                case "3":
+                    ReiniciarDatos();
+                    break;
+                case "4":
+                    Console.WriteLine("Volviendo al menú principal...");
+                    volver = true;
+                    break;
+                default:
+                    Console.WriteLine("Opción inválida. Presione una tecla...");
+                    Console.ReadKey();
+                    break;
+            }
+        }
+    }
+
+    static void GuardarDatos()
+    {
+        Console.Clear();
+        Console.WriteLine("=== Guardar Datos ===");
+        Console.WriteLine(" guardando datos en archivo/base de datos...");
+        Console.ReadKey();
+    }
+
+    static void CargarDatos()
+    {
+        Console.Clear();
+        Console.WriteLine("=== Cargar Datos ===");
+        Console.WriteLine("cargando datos desde archivo/base de datos...");
+        Console.ReadKey();
+    }
+
+    static void ReiniciarDatos()
+    {
+        Console.Clear();
+        Console.WriteLine("=== Reiniciar Datos ===");
+        Console.Write("¿Está seguro que desea reiniciar los datos? (S/N): ");
+        string opcion = Console.ReadLine()?.ToUpper();
+
+        if (opcion == "S")
+        {
+            ReiniciarConfirmado();
+        }
+        else
+        {
+            Console.WriteLine("Operación cancelada.");
+        }
+
+        Console.ReadKey();
+    }
+
+    static void ReiniciarConfirmado()
+    {
+        Console.Clear();
+        Console.WriteLine("Reiniciando datos... ");
         Console.ReadKey();
     }
 }
