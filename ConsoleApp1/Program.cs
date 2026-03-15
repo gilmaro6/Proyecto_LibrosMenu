@@ -35,6 +35,7 @@ class Program
                     GuardarCargarMenu();
                     break;
                 case "6":
+                    PreguntarGuardarAntesDeSalir();
                     Console.Write("saliendo del programa...");
                     salir = true;
                     break;
@@ -786,4 +787,30 @@ static void BusquedasReportes()
         Console.WriteLine("Reiniciando datos... ");
         Console.ReadKey();
     }
+
+    ////////////////////////////////////////////
+    
+
+    static void PreguntarGuardarAntesDeSalir()
+    {
+        Console.Clear();
+        Console.WriteLine("=== Salida del Programa ===");
+        Console.Write("¿Desea guardar los datos antes de salir? (S/N): ");
+        string opcion = Console.ReadLine()?.ToUpper();
+
+        if (opcion == "S")
+        {
+            GuardarDatos();
+            Console.WriteLine("Datos guardados correctamente.");
+        }
+        else
+        {
+            Console.WriteLine("No se guardaron los datos.");
+        }
+
+        Console.WriteLine("Saliendo del programa...");
+        Console.ReadKey();
+    }
+
 }
+
