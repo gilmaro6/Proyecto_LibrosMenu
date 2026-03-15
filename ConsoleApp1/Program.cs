@@ -26,6 +26,8 @@ class Program
                     usuariosMenu();
                     break; 
                 case "3":
+                    PrestamosMenu(); 
+                    break;
                 case "4": 
                 case "5": 
                 case "6":
@@ -222,6 +224,7 @@ static void usuariosMenu()
             Console.ReadKey();
             break;
     }
+    }
 }
 static void RegistrarUsuario()
 {
@@ -243,7 +246,8 @@ static void detallesUsuario()
     Console.WriteLine("=== Detalles del Usuario por ID/Documento ===");
     
     Console.ReadKey();
-}static void actualizarUsuario()
+}
+static void actualizarUsuario()
 {
     Console.Clear();
     Console.WriteLine("=== Actualizar Usuario ===");
@@ -302,5 +306,126 @@ static void EliminarUsuario()
     
     Console.ReadKey();
 }
+////////////////////////////////////////
+static void PrestamosMenu()
+{
+    bool volver = false;
+    while (!volver)
+    {
+        Console.Clear();
+        Console.WriteLine("=== Menú de Préstamos ===");
+        Console.WriteLine("1. Crear préstamo");
+        Console.WriteLine("2. Listar préstamos");
+        Console.WriteLine("3. Ver detalles por ID");
+        Console.WriteLine("4. Registrar devolución");
+        Console.WriteLine("5. Eliminar préstamo");
+        Console.WriteLine("6. Volver al menú principal");
+        Console.Write("Seleccione una opción: ");
+
+        switch (Console.ReadLine())
+        {
+            case "1":
+                RegistrarPrestamo();
+                break;
+            case "2":
+                ListarPrestamos();
+                break;
+            case "3":
+                detallesPrestamo();
+                break;
+            case "4":
+                actualizarPrestamo();
+                break;
+            case "5":
+                eliminarPrestamo();
+                break;
+            case "6":
+                Console.WriteLine("Volviendo al menú principal...");
+                volver = true;
+                break;
+            default:
+                Console.WriteLine("Opción inválida. Presione una tecla...");
+                Console.ReadKey();
+                break;
+        }
+    }
+}
+
+// Métodos auxiliares fuera del menú
+static void RegistrarPrestamo()
+{
+    Console.Clear();
+    Console.WriteLine("=== Registrar Préstamo ===");
+    Console.ReadKey();
+}
+
+static void ListarPrestamos()
+{
+    Console.Clear();
+    Console.WriteLine("=== Listar Préstamos ===");
+    Console.WriteLine("1. Todos");
+    Console.WriteLine("2. Activos");
+    Console.WriteLine("3. Cerrados");
+    Console.Write("Seleccione una opción: ");
+
+    switch (Console.ReadLine())
+    {
+        case "1":
+            listarTodosPrestamos();
+            break;
+        case "2":
+            listarPrestamosActivos();
+            break;
+        case "3":
+            listarPrestamosCerrados();
+            break;
+        default:
+            Console.WriteLine("Opción inválida. Presione una tecla...");
+            break;
+    }
+
+    Console.ReadKey();
+}
+
+static void listarTodosPrestamos()
+{
+    Console.Clear();
+    Console.WriteLine("=== Listar Todos los Préstamos ===");
+    Console.ReadKey();
+}
+
+static void listarPrestamosActivos()
+{
+    Console.Clear();
+    Console.WriteLine("=== Listar Préstamos Activos ===");
+    Console.ReadKey();
+}
+
+static void listarPrestamosCerrados()
+{
+    Console.Clear();
+    Console.WriteLine("=== Listar Préstamos Cerrados ===");
+    Console.ReadKey();
+}
+
+static void detallesPrestamo()
+{
+    Console.Clear();
+    Console.WriteLine("=== Detalles del Préstamo por ID ===");
+    Console.ReadKey();
+}
+
+static void actualizarPrestamo()
+{
+    Console.Clear();
+    Console.WriteLine("=== Registrar Devolución ===");
+    Console.ReadKey();
+}
+
+static void eliminarPrestamo()
+{
+    Console.Clear();
+    Console.WriteLine("=== Eliminar Préstamo ===");
+    Console.ReadKey();
 }
 }
