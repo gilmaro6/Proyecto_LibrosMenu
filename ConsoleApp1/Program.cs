@@ -22,7 +22,9 @@ class Program
                 case "1": 
                     librosMenu();
                     break;
-                case "2": 
+                case "2":
+                    usuariosMenu();
+                    break; 
                 case "3":
                 case "4": 
                 case "5": 
@@ -174,5 +176,131 @@ static void eliminarLibro()
 
     
     Console.ReadKey();
+}
+//////////////////////////////////////
+/// 
+/// 
+/// 
+
+static void usuariosMenu()
+{
+    bool volver = false;
+    while (!volver)        {
+    Console.Clear();
+    Console.WriteLine("=== Menú de Usuarios ===");
+    Console.WriteLine("1. Registrar usuario");
+    Console.WriteLine("2. Listar usuarios");
+    Console.WriteLine("3. detalles por ID/Documento");
+    Console.WriteLine("4. Actualizar usuario");
+    Console.WriteLine("5. Eliminar usuario");
+    Console.WriteLine("6. Volver al menú principal");
+    Console.Write("Seleccione una opción: ");
+
+    switch (Console.ReadLine())
+    {
+        case "1": 
+            RegistrarUsuario();
+            break;
+        case "2": 
+            ListarUsuarios();
+            break;
+        case "3":
+            detallesUsuario();
+            break;
+        case "4": 
+            actualizarUsuario();
+            break;
+        case "5": 
+            eliminarUsuario();
+            break;
+        case "6":
+            Console.Write("volviendo al menú principal...");
+            volver = true;
+            break;
+        default:
+            Console.WriteLine("Opción inválida. Presione una tecla...");
+            Console.ReadKey();
+            break;
+    }
+}
+static void RegistrarUsuario()
+{
+    Console.Clear();
+    Console.WriteLine("=== Registrar Usuario ===");
+    
+    Console.ReadKey();
+}
+static void ListarUsuarios()
+{
+    Console.Clear();
+    Console.WriteLine("=== Listar Usuarios ===");
+    
+    Console.ReadKey();
+}
+static void detallesUsuario()
+{
+    Console.Clear();
+    Console.WriteLine("=== Detalles del Usuario por ID/Documento ===");
+    
+    Console.ReadKey();
+}static void actualizarUsuario()
+{
+    Console.Clear();
+    Console.WriteLine("=== Actualizar Usuario ===");
+    Console.Write("1. editar nombre");
+    Console.Write("");
+    Console.Write("2. editar contacto");
+    Console.Write("");
+    Console.Write("3. Activar/desactivar usuario");
+
+    switch (Console.ReadLine())
+    {
+        case "1":
+            EditarNombre();
+            Console.Write("");
+            break; 
+        case "2": 
+            EditarContacto();
+            Console.Write("");
+            break;
+        case "3":
+            ActivarDesactivarUsuario();
+            Console.Write("");
+            break;
+        default:
+            Console.WriteLine("Opción inválida. Presione una tecla...");
+            break;
+    }
+    
+    Console.ReadKey();
+}
+static void eliminarUsuario()
+{
+    Console.Clear();
+    Console.WriteLine("=== Eliminar Usuario ===");
+
+    
+    Console.ReadKey();
+}
+static void EditarNombre()
+{
+    Console.Write("nuevo nombre: ");
+}
+static void EditarContacto()
+{
+    Console.Write("nuevo contacto: ");
+}
+static void ActivarDesactivarUsuario()
+{
+    Console.Write("¿Activar o desactivar usuario? (1/0): ");
+}
+static void EliminarUsuario()
+{
+    Console.Clear();
+    Console.WriteLine("=== Eliminar Usuario ===");
+
+    
+    Console.ReadKey();
+}
 }
 }
