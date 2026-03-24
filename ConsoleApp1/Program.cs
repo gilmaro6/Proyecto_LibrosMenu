@@ -369,6 +369,7 @@ static void RegistrarPrestamo()
 {
     Console.Clear();
     Console.WriteLine("=== Registrar Préstamo ===");
+    ModelsTesting.MostrarValidaciones();
     Console.ReadKey();
 }
 
