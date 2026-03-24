@@ -149,7 +149,9 @@ static void detallesLibro()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Libro por ID/ISBN ===");
-    
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 static void actualizarLibro()
@@ -253,7 +255,9 @@ static void detallesUsuario()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Usuario por ID/Documento ===");
-    
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 static void actualizarUsuario()
@@ -424,6 +428,9 @@ static void detallesPrestamo()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Préstamo por ID ===");
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 
