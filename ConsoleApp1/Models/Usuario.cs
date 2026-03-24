@@ -8,13 +8,13 @@ public class Usuario
     public string Contacto { get; set; } = "";
     public bool Activo { get; set; } = true;
 
-    // Constructor vacÌo
+    // Constructor vac√≠o
     public Usuario()
     {
         Activo = true;
     }
 
-    // Constructor con par·metros
+    // Constructor con par√°metros
     public Usuario(
         int id,
         string documento,
@@ -28,5 +28,27 @@ public class Usuario
         Nombre = nombre;
         Contacto = contacto;
         Activo = activo;
+    }
+
+    // M√©todos
+    public string ResumenCorto()
+    {
+        return $"[Usuario #{Id}] {Nombre} ({Documento}) [{(Activo ? "ACTIVO" : "INACTIVO")}]";
+    }
+
+    public string DetalleCompleto()
+    {
+        return
+            $"--- Usuario ---\n" +
+            $"Id: {Id}\n" +
+            $"Documento: {Documento}\n" +
+            $"Nombre: {Nombre}\n" +
+            $"Contacto: {Contacto}\n" +
+            $"Estado: {(Activo ? "Activo" : "Inactivo")}";
+    }
+
+    public override string ToString()
+    {
+        return ResumenCorto();
     }
 }
