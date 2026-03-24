@@ -1,5 +1,5 @@
 ﻿namespace ConsoleApp1;
-
+using ConsoleApp1.Models;
 class Program
 {
     static void Main(string[] args)
@@ -126,7 +126,9 @@ static void listarTodos()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Todos los Libros ===");
-    
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 static void listarDisponibles()
@@ -242,7 +244,9 @@ static void ListarUsuarios()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Usuarios ===");
-    
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 static void detallesUsuario()
@@ -396,6 +400,9 @@ static void listarTodosPrestamos()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Todos los Préstamos ===");
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 
