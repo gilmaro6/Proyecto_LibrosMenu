@@ -1,5 +1,5 @@
 ﻿namespace ConsoleApp1;
-
+using ConsoleApp1.Models;
 class Program
 {
     static void Main(string[] args)
@@ -126,7 +126,9 @@ static void listarTodos()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Todos los Libros ===");
-    
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 static void listarDisponibles()
@@ -147,7 +149,9 @@ static void detallesLibro()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Libro por ID/ISBN ===");
-    
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 static void actualizarLibro()
@@ -242,14 +246,18 @@ static void ListarUsuarios()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Usuarios ===");
-    
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 static void detallesUsuario()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Usuario por ID/Documento ===");
-    
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 static void actualizarUsuario()
@@ -361,6 +369,7 @@ static void RegistrarPrestamo()
 {
     Console.Clear();
     Console.WriteLine("=== Registrar Préstamo ===");
+    ModelsTesting.MostrarValidaciones();
     Console.ReadKey();
 }
 
@@ -396,6 +405,9 @@ static void listarTodosPrestamos()
 {
     Console.Clear();
     Console.WriteLine("=== Listar Todos los Préstamos ===");
+
+    ModelsTesting.MostrarResumenes(); 
+
     Console.ReadKey();
 }
 
@@ -417,6 +429,9 @@ static void detallesPrestamo()
 {
     Console.Clear();
     Console.WriteLine("=== Detalles del Préstamo por ID ===");
+
+    ModelsTesting.MostrarDetalles(); 
+
     Console.ReadKey();
 }
 
