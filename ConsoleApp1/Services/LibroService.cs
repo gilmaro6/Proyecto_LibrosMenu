@@ -27,4 +27,14 @@ public class LibroService
     {
         return libros.FirstOrDefault(l => l.ISBN == isbn);
     }
+
+    public List<Libro> BuscarPorTitulo(string titulo)
+    {
+        return libros.Where(l => l.Titulo.Contains(titulo)).ToList();
+    }
+
+    public List<Libro> BuscarPorAutor(string autor)
+    {
+        return libros.Where(l => l.Autor.Contains(autor)).ToList();
+    }
 }
