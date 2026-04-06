@@ -27,4 +27,9 @@ public class UsuarioService
     {
         return usuarios.FirstOrDefault(u => u.Documento == documento);
     }
+
+    public List<Usuario> BuscarPorNombre(string nombre)
+    {
+        return usuarios.Where(u => u.Nombre.Contains(nombre)).ToList();
+    }
 }
