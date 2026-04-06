@@ -27,4 +27,9 @@ public class PrestamoService
     {
         return prestamos.FirstOrDefault(p => p.Id == id);
     }
+
+    public List<Prestamo> BuscarPorEstado(EstadoPrestamo estado)
+    {
+        return prestamos.Where(p => p.Estado == estado).ToList();
+    }
 }
