@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ConsoleApp1.Models;
 
 namespace ConsoleApp1.Services;
@@ -20,5 +21,40 @@ public class LibroService
     public List<Libro> ObtenerTodos()
     {
         return new List<Libro>(libros);
+    }
+
+    public Libro BuscarPorISBN(string isbn)
+    {
+        return libros.FirstOrDefault(l => l.ISBN == isbn);
+    }
+
+    public List<Libro> BuscarPorTitulo(string titulo)
+    {
+        return libros.Where(l => l.Titulo.Contains(titulo)).ToList();
+    }
+
+    public List<Libro> BuscarPorAutor(string autor)
+    {
+        return libros.Where(l => l.Autor.Contains(autor)).ToList();
+    }
+
+    public List<Libro> OrdenarPorTitulo()
+    {
+        return libros.OrderBy(l => l.Titulo).ToList();
+    }
+
+    public int TotalLibros()
+    {
+        return libros.Count;
+    }
+
+    public int TotalDisponibles()
+    {
+        return libros.Count(l => l.Disponible);
+    }
+
+    public int TotalPrestados()
+    {
+        return libros.Count(l => !l.Disponible);
     }
 }
