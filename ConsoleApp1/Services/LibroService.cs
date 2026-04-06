@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ConsoleApp1.Models;
 
 namespace ConsoleApp1.Services;
@@ -20,5 +21,10 @@ public class LibroService
     public List<Libro> ObtenerTodos()
     {
         return new List<Libro>(libros);
+    }
+
+    public Libro BuscarPorISBN(string isbn)
+    {
+        return libros.FirstOrDefault(l => l.ISBN == isbn);
     }
 }
