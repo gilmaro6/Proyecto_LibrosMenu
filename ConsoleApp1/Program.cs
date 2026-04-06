@@ -28,7 +28,15 @@ Console.WriteLine($"Total Libros: {libroService.TotalLibros()}");
 Console.WriteLine($"Total Usuarios: {usuarioService.TotalUsuarios()}");
 Console.WriteLine($"Total Prestamos: {prestamoService.TotalPrestamos()}");
 
+// Comparación Array vs List EV08
+int[] arrayEjemplo = new int[3] { 1, 2, 3 };
+// arrayEjemplo[3] = 4; ❌ Error tamaño fijo
 
+List<int> listaEjemplo = new List<int> { 1, 2, 3 };
+listaEjemplo.Add(4); // ✅ tamaño dinámico
+
+Console.WriteLine($"Array size: {arrayEjemplo.Length}");
+Console.WriteLine($"List size: {listaEjemplo.Count}");
     bool salir = false;
 
         while (!salir)
