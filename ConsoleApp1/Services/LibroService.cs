@@ -12,6 +12,11 @@ public class LibroService
         libros.Add(libro);
     }
 
+    public bool Eliminar(Libro libro)
+    {
+        return libros.Remove(libro);
+    }
+
     public List<Libro> ObtenerTodos()
     {
         return new List<Libro>(libros);
