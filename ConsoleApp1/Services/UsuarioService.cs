@@ -32,4 +32,24 @@ public class UsuarioService
     {
         return usuarios.Where(u => u.Nombre.Contains(nombre)).ToList();
     }
+
+    public List<Usuario> OrdenarPorNombre()
+    {
+        return usuarios.OrderBy(u => u.Nombre).ToList();
+    }
+
+    public int TotalUsuarios()
+    {
+        return usuarios.Count;
+    }
+
+    public int TotalActivos()
+    {
+        return usuarios.Count(u => u.Activo);
+    }
+
+    public int TotalInactivos()
+    {
+        return usuarios.Count(u => !u.Activo);
+    }
 }
