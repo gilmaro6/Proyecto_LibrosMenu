@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ConsoleApp1.Models;
 
 namespace ConsoleApp1.Services;
@@ -20,5 +21,10 @@ public class PrestamoService
     public List<Prestamo> ObtenerTodos()
     {
         return new List<Prestamo>(prestamos);
+    }
+
+    public Prestamo BuscarPorId(int id)
+    {
+        return prestamos.FirstOrDefault(p => p.Id == id);
     }
 }
