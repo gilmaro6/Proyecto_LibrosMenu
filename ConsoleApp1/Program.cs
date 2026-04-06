@@ -1,10 +1,44 @@
 ﻿namespace ConsoleApp1;
 using ConsoleApp1.Models;
+using ConsoleApp1.Services;
 class Program
 {
-    static void Main(string[] args)
-    {
-        bool salir = false;
+    
+static void Main(string[] args)
+{
+    LibroService libroService = new LibroService();
+    UsuarioService usuarioService = new UsuarioService();
+    PrestamoService prestamoService = new PrestamoService();
+    // Datos de prueba EV08
+libroService.Agregar(ModelsTesting.Libro1);
+libroService.Agregar(ModelsTesting.Libro2);
+
+usuarioService.Agregar(ModelsTesting.Usuario1);
+usuarioService.Agregar(ModelsTesting.Usuario2);
+
+prestamoService.Agregar(ModelsTesting.Prestamo1);
+
+// Pruebas de búsquedas
+var libroBuscado = libroService.BuscarPorISBN("ISBN-001");
+var usuariosPorNombre = usuarioService.BuscarPorNombre("Juan");
+var prestamosActivos = prestamoService.BuscarPorEstado(EstadoPrestamo.Activo);
+
+// KPIs EV08
+Console.WriteLine($"Total Libros: {libroService.TotalLibros()}");
+Console.WriteLine($"Total Usuarios: {usuarioService.TotalUsuarios()}");
+Console.WriteLine($"Total Prestamos: {prestamoService.TotalPrestamos()}");
+
+// Comparación Array vs List EV08
+int[] arrayEjemplo = new int[3] { 1, 2, 3 };
+// arrayEjemplo[3] = 4; ❌ Error tamaño fijo
+
+List<int> listaEjemplo = new List<int> { 1, 2, 3 };
+listaEjemplo.Add(4); // ✅ tamaño dinámico
+
+Console.WriteLine($"Array size: {arrayEjemplo.Length}");
+Console.WriteLine($"List size: {listaEjemplo.Count}");
+    bool salir = false;
+
         while (!salir)
         {
             Console.Clear();
