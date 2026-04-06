@@ -1,10 +1,17 @@
 ﻿namespace ConsoleApp1;
 using ConsoleApp1.Models;
+using ConsoleApp1.Services;
 class Program
 {
-    static void Main(string[] args)
-    {
-        bool salir = false;
+    
+static void Main(string[] args)
+{
+    LibroService libroService = new LibroService();
+    UsuarioService usuarioService = new UsuarioService();
+    PrestamoService prestamoService = new PrestamoService();
+
+    bool salir = false;
+
         while (!salir)
         {
             Console.Clear();
