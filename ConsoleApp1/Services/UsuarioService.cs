@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using ConsoleApp1.Models;
 
 namespace ConsoleApp1.Services;
@@ -20,5 +21,10 @@ public class UsuarioService
     public List<Usuario> ObtenerTodos()
     {
         return new List<Usuario>(usuarios);
+    }
+
+    public Usuario BuscarPorDocumento(string documento)
+    {
+        return usuarios.FirstOrDefault(u => u.Documento == documento);
     }
 }
