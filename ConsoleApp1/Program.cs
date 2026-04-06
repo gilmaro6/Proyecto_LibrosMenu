@@ -9,6 +9,25 @@ static void Main(string[] args)
     LibroService libroService = new LibroService();
     UsuarioService usuarioService = new UsuarioService();
     PrestamoService prestamoService = new PrestamoService();
+    // Datos de prueba EV08
+libroService.Agregar(ModelsTesting.Libro1);
+libroService.Agregar(ModelsTesting.Libro2);
+
+usuarioService.Agregar(ModelsTesting.Usuario1);
+usuarioService.Agregar(ModelsTesting.Usuario2);
+
+prestamoService.Agregar(ModelsTesting.Prestamo1);
+
+// Pruebas de búsquedas
+var libroBuscado = libroService.BuscarPorISBN("ISBN-001");
+var usuariosPorNombre = usuarioService.BuscarPorNombre("Juan");
+var prestamosActivos = prestamoService.BuscarPorEstado(EstadoPrestamo.Activo);
+
+// KPIs EV08
+Console.WriteLine($"Total Libros: {libroService.TotalLibros()}");
+Console.WriteLine($"Total Usuarios: {usuarioService.TotalUsuarios()}");
+Console.WriteLine($"Total Prestamos: {prestamoService.TotalPrestamos()}");
+
 
     bool salir = false;
 
