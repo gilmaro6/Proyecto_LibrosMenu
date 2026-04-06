@@ -37,4 +37,24 @@ public class LibroService
     {
         return libros.Where(l => l.Autor.Contains(autor)).ToList();
     }
+
+    public List<Libro> OrdenarPorTitulo()
+    {
+        return libros.OrderBy(l => l.Titulo).ToList();
+    }
+
+    public int TotalLibros()
+    {
+        return libros.Count;
+    }
+
+    public int TotalDisponibles()
+    {
+        return libros.Count(l => l.Disponible);
+    }
+
+    public int TotalPrestados()
+    {
+        return libros.Count(l => !l.Disponible);
+    }
 }
