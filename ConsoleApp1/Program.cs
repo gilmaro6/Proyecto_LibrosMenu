@@ -3,12 +3,16 @@ using ConsoleApp1.Models;
 using ConsoleApp1.Services;
 class Program
 {
+    // ===== Services (memoria) compartidos para menú funcional =====
+    static LibroService libroService = new LibroService();
+    static UsuarioService usuarioService = new UsuarioService();
+    static PrestamoService prestamoService = new PrestamoService();
+
+    static int nextPrestamoId = 1;
     
 static void Main(string[] args)
 {
-    LibroService libroService = new LibroService();
-    UsuarioService usuarioService = new UsuarioService();
-    PrestamoService prestamoService = new PrestamoService();
+    SeedDataSiVacio();
     // Datos de prueba EV08
 libroService.Agregar(ModelsTesting.Libro1);
 libroService.Agregar(ModelsTesting.Libro2);
@@ -862,4 +866,51 @@ static void BusquedasReportes()
     }
 
 }
+    // ===== Helpers de entrada/validación =====
+    static string ReadNonEmpty(string label)
+    {
+        string? input;
+        do
+        {
+            Console.Write(label);
+            input = Console.ReadLine();
+        } while (string.IsNullOrWhiteSpace(input));
 
+        return input.Trim();
+    }
+
+    static int ReadInt(string label)
+    {
+        while (true)
+        {
+            Console.Write(label);
+            var input = Console.ReadLine();
+            if (int.TryParse(input, out int value))
+                return value;
+
+            Console.WriteLine("Entrada inválida. Debe ser un número.");
+        }
+    }
+
+    static void Pause(string msg = "Presione una tecla para continuar...")
+    {
+        Console.WriteLine(msg);
+        Console.ReadKey();
+    }
+
+    // ===== Seed de datos (sin BD) =====
+    static void SeedDataSiVacio()
+    {
+        if (libroService.TotalLibros() > 0 || usuarioService.TotalUsuarios() > 0 || prestamoService.TotalPrestamos() > 0)
+            return;
+
+        libroService.Agregar(ModelsTesting.Libro1);
+        libroService.Agregar(ModelsTesting.Libro2);
+
+        usuarioService.Agregar(ModelsTesting.Usuario1);
+        usuarioService.Agregar(ModelsTesting.Usuario2);
+
+        nextPrestamoId = Math.Max(nextPrestamoId, ModelsTesting.Prestamo1.Id + 1);
+        prestamoService.Agregar(ModelsTesting.Prestamo1);
+    }
+}
