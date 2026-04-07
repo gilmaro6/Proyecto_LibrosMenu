@@ -865,7 +865,7 @@ static void BusquedasReportes()
         Console.ReadKey();
     }
 
-}
+
     // ===== Helpers de entrada/validación =====
     static string ReadNonEmpty(string label)
     {
@@ -914,3 +914,4 @@ static void BusquedasReportes()
         prestamoService.Agregar(ModelsTesting.Prestamo1);
     }
 }
+
